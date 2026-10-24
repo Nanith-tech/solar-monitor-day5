@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T15:33:37.995135+00:00",
+  "title": "Design System: Solar Monitor",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "panel-structure",
+        "value": "10px 18px 20px #111e1766",
+        "purpose": "Structural depth for panel geometry only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "panel-angle",
+        "value": "350ms cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Educational angle adjustment."
+      },
+      {
+        "name": "sunlight",
+        "value": "300ms",
+        "purpose": "Sun opacity adjustment."
+      },
+      {
+        "name": "cell-shade",
+        "value": "200ms",
+        "purpose": "Cell background change."
+      },
+      {
+        "name": "relative-output",
+        "value": "250ms",
+        "purpose": "Comparison bar width."
+      },
+      {
+        "name": "energy-flow",
+        "value": "2.6s linear",
+        "purpose": "Fresh positive telemetry or positive illustrative output only; static under reduced motion."
+      },
+      {
+        "name": "refresh",
+        "value": "1.2s linear",
+        "purpose": "Refresh spinner; disabled under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "max-360",
+        "value": "360px"
+      },
+      {
+        "name": "max-620",
+        "value": "620px"
+      },
+      {
+        "name": "max-760",
+        "value": "760px"
+      },
+      {
+        "name": "max-1000",
+        "value": "1000px"
+      },
+      {
+        "name": "max-1200",
+        "value": "1200px"
+      },
+      {
+        "name": "min-1700",
+        "value": "1700px"
+      }
+    ],
+    "focus": [
+      {
+        "name": "light-controls",
+        "value": "3px solid #a95a05; offset 4px"
+      },
+      {
+        "name": "dark-controls",
+        "value": "3px solid #efcf91; offset 4px"
+      },
+      {
+        "name": "solar-cells",
+        "value": "3px solid #fff; offset -3px"
+      }
+    ],
+    "reducedMotion": "Disable animations, transitions and smooth scrolling; flowing energy markers are static at 20%, 50% and 80%."
+  },
+  "components": [
+    {
+      "name": "Operational button",
+      "kind": "button",
+      "description": "Submit an operational action.",
+      "html": "<button class=\"ds-primary\">Apply range</button>",
+      "css": ".ds-primary{background:var(--action,#303e32);color:#fff;border:0;border-radius:7px;padding:11px 18px;font:700 12px Manrope,sans-serif;min-height:42px}.ds-primary:hover{background:#435342}.ds-primary:focus-visible{outline:3px solid var(--accent,#a95a05);outline-offset:4px}.ds-primary:active{transform:translateY(1px)}.ds-primary:disabled{opacity:.55}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "description": "Refresh, export and history actions.",
+      "html": "<button class=\"ds-secondary\">Refresh</button>",
+      "css": ".ds-secondary{background:#fff;border:1px solid #cdd4c9;border-radius:7px;padding:9px 14px;color:#333f33;font:600 12px Manrope,sans-serif;min-height:40px}.ds-secondary:hover{background:#e9ede5}.ds-secondary:focus-visible{outline:3px solid var(--accent,#a95a05);outline-offset:4px}.ds-secondary:active{transform:translateY(1px)}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Educational entry",
+      "kind": "button",
+      "description": "Enter the isolated educational comparison.",
+      "html": "<button class=\"ds-experiment\">Explore light &amp; shade</button>",
+      "css": ".ds-experiment{background:#f4e2bc;color:#67440e;border:0;border-radius:7px;padding:12px;font:700 12px Manrope,sans-serif}.ds-experiment:hover{background:#efd49c}.ds-experiment:focus-visible{outline:3px solid var(--accent,#a95a05);outline-offset:4px}.ds-experiment:active{transform:translateY(1px)}",
+      "refersTo": "button-experiment"
+    },
+    {
+      "name": "Labeled field",
+      "kind": "input",
+      "description": "Visible label and readable keyboard focus.",
+      "html": "<label class=\"ds-label\">Wi-Fi name<input class=\"ds-input\" autocomplete=\"off\" /></label>",
+      "css": ".ds-label{display:grid;gap:7px;font:600 12px Manrope,sans-serif;color:var(--muted,#626861)}.ds-input{border:1px solid #c8d0c2;border-radius:7px;padding:10px 12px;color:var(--ink,#242824);background:#fff;font:400 13px Manrope,sans-serif;min-height:42px}.ds-input:focus-visible{outline:3px solid var(--accent,#a95a05);outline-offset:4px}.ds-input:disabled{opacity:.55}",
+      "refersTo": "field"
+    },
+    {
+      "name": "Navigation selection",
+      "kind": "nav",
+      "description": "Charcoal navigation with a visible selected state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Preview navigation\"><button class=\"ds-nav-item\" aria-current=\"page\">Overview</button></nav>",
+      "css": ".ds-nav{background:var(--dark,#202a26);padding:18px}.ds-nav-item{background:#344139;color:#fff;border:0;border-radius:8px;padding:12px 14px;font:600 12px Manrope,sans-serif;text-align:left}.ds-nav-item:hover{background:#344139}.ds-nav-item:focus-visible{outline:3px solid #efcf91;outline-offset:4px}.ds-nav-item:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Status badge",
+      "kind": "chip",
+      "description": "Text accompanies every connection dot; this badge is noninteractive.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-dot\" aria-hidden=\"true\"></span>Awaiting telemetry</span>",
+      "css": ".ds-status{display:inline-flex;gap:7px;align-items:center;font:400 10px Manrope,sans-serif;padding:6px 10px;border-radius:30px;background:#f1f2eb;color:#596450}.ds-dot{width:7px;height:7px;border-radius:50%;background:#829286}"
+    },
+    {
+      "name": "Operating panel",
+      "kind": "card",
+      "description": "Flat operating surface, without decorative elevation.",
+      "html": "<section class=\"ds-card\"><h3>Device connection</h3><p>Awaiting fresh telemetry.</p></section>",
+      "css": ".ds-card{background:#fff;border:1px solid var(--line,#dce0d8);border-radius:12px;padding:26px;color:var(--ink,#242824);font:400 14px/1.6 Manrope,sans-serif}.ds-card h3{margin:0;font-size:15px;font-weight:700}.ds-card p{margin:12px 0 0;color:var(--muted,#626861);font-size:12px}",
+      "refersTo": "card"
+    },
+    {
+      "name": "Photovoltaic cell",
+      "kind": "custom",
+      "description": "One of the six-by-four native interactive cells; preview does not run shade logic.",
+      "html": "<div class=\"ds-frame\"><button class=\"ds-cell\" aria-label=\"Shade cell 1\" aria-pressed=\"false\"><span aria-hidden=\"true\"></span></button></div>",
+      "css": ".ds-frame{background:#98a89e;padding:8px;width:52px}.ds-cell{position:relative;width:36px;height:36px;padding:0;border:1px solid #6b92a2;border-radius:2px;background:#234659;overflow:hidden;transition:background .2s}.ds-cell span{position:absolute;inset:0;top:32%;height:36%;border-top:1px solid #91b1bb;border-bottom:1px solid #91b1bb;opacity:.65}.ds-cell:before{content:\"\";position:absolute;left:48%;height:100%;width:1px;background:#94b8c1;opacity:.65}.ds-cell:hover{background:#39677a}.ds-cell:focus-visible{outline:3px solid #fff;outline-offset:-3px}.ds-cell[aria-pressed=true]{background:#111f2c;border-color:#364e5d}.ds-cell[aria-pressed=true] span,.ds-cell[aria-pressed=true]:before{opacity:.16}.ds-cell:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-cell{transition:none}}",
+      "refersTo": "solar-cell"
+    }
+  ],
+  "narrative": {
+    "northStar": "Solar laboratory",
+    "overview": "A solar laboratory operating dashboard: measured data is easy to scan, while the panel model invites exploration. Light neutral surfaces carry readings, histories and setup. Charcoal green grounds the hardware scene and navigation; amber identifies the sunlight experiment and keyboard focus.\n\nControls feel practical and deliberate. Tonal separation and fine borders organize the workspace; perspective and structural shadow belong to the modeled hardware.",
+    "keyCharacteristics": [
+      "Readable measurement hierarchy with units and tabular numerals.",
+      "Flat operating surfaces beside a dimensional hardware scene.",
+      "Clearly labeled separation between telemetry and educational exploration."
+    ],
+    "rules": [],
+    "dos": [
+      "Do retain visible units, timestamps and source labels.",
+      "Do keep educational controls separate from measurements and firmware control.",
+      "Do preserve native keyboard operation, visible focus and reduced motion.",
+      "Do use bundled Manrope rather than adding a remote font dependency."
+    ],
+    "donts": [
+      "Don't imply measured irradiance, efficiency or a motorized panel angle.",
+      "Don't animate live energy transfer when sensor readings are stale.",
+      "Don't make connection status depend on color alone."
+    ]
+  }
+}
